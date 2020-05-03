@@ -1,10 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-interface ButtonProps {
-  primary?: Boolean
-}
-
 const Button = styled.button`
   background: transparent;
   border-radius: 4px;
@@ -13,7 +9,7 @@ const Button = styled.button`
   margin: 0 1em;
   height: 40px;
 
-  ${(props: ButtonProps) =>
+  ${(props) =>
     props.primary &&
     css`
       background: palevioletred;

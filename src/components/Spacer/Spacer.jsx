@@ -1,14 +1,10 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-interface SpacerProps {
-  size: "small" | "big"
-}
-
 const Button = styled.div`
   background: transparent;
 
-  ${(props: SpacerProps) =>
+  ${(props) =>
     props.size ? css`
       width: 1rem;
       height: 1rem;

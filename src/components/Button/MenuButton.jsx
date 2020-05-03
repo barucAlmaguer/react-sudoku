@@ -8,7 +8,7 @@ const MenuButton = styled(Button)`
   width: 40px;
 `
 
-export default (props: any) => {
+export default (props) => {
   return (
     <MenuButton { ...props }>
       <FontAwesomeIcon icon={faBars} />

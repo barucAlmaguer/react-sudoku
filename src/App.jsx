@@ -9,14 +9,14 @@ import {
 } from './components'
 
 function App() {
-  const [sidebarHidden, setSidebarHidden] = useState(true)
-  const props = useSpring({ opacity: 1, from: { opacity: 0 } })
+  const [menuHidden, setMenuHidden] = useState(true)
+  const opacityProps = useSpring({ opacity: 1, from: { opacity: 0 } })
   return (
     <div className="App">
-      <Sidebar hidden={sidebarHidden}>
+      <Sidebar hidden={menuHidden}>
         <h1>Menu</h1>
         <div className="sidebar-options">
-          <Button onClick={() => {setSidebarHidden(true)}} >BACK</Button>
+          <Button onClick={() => {setMenuHidden(true)}} >BACK</Button>
           <Spacer size="small" />
           <Button primary>Saved games</Button>
           <Spacer size="small" />
@@ -25,11 +25,11 @@ function App() {
       </Sidebar>
       <div className="App-main">
         <div className='App-header'>
-          <MenuButton onClick={() => { setSidebarHidden(!sidebarHidden) }} />
+          <MenuButton onClick={() => { setMenuHidden(false) }} />
           <h1>React Sudoku</h1>
         </div>
         <div className='App-content'>
-          <animated.div className='rotating-div' style={props} />
+          <animated.div className='rotating-div' style={opacityProps} />
         </div>
         <div className='App-footer'>
           Footer Actions
