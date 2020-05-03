@@ -1,3 +1,15 @@
+## REACT SUDOKU toy project
+Library stack:
+- typescript
+- react-testing-library: https://testing-library.com/
+- styled-components: https://styled-components.com/
+- react-spring: https://www.react-spring.io/
+- react-beautiful-dnd: https://github.com/atlassian/react-beautiful-dnd
+- xstate: https://xstate.js.org/
+- i18next: https://react.i18next.com/
+
+## REACT DEFAULT README:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
