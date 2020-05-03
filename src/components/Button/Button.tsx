@@ -12,7 +12,6 @@ const Button = styled.button`
   color: palevioletred;
   margin: 0 1em;
   height: 40px;
-  width: 40px;
 
   ${(props: ButtonProps) =>
     props.primary &&

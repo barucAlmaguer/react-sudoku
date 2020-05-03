@@ -1,20 +1,32 @@
 .App {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "sidebar main";
+  color: white;
+  /* flex-direction: column; */
+}
+
+.sidebar-options {
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.App-main {
+  width: 100vw;
 }
 
 .App-header {
   background-color: #282c34;
-  height: 100%;
-  padding: 1rem;
+  height: 60px;
+  padding-left: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  color: white;
 }
 .App-header h1 {
-  font-size: 40px;
+  font-size: 32px;
   margin-top: 0px;
   margin-bottom: 0px;
   width: 100%;
@@ -24,13 +36,22 @@
 .App-content {
   background-color: #497bdd;
   padding: 1rem;
-  height: calc(100vh - 8rem);
-  width: 100%;
+  height: calc(100vh - 60px - 60px);
+}
+
+.App-footer {
+  background-color: #282c34;
+  height: 60px;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .rotating-div {
   background-color: antiquewhite;
   height: 10rem;
-  width: 10rem;
+  width: 16rem;
   border-radius: 4px;
 }
