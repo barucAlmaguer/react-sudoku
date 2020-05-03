@@ -1,15 +1,21 @@
-import React from 'react';
 import './App.css';
+import React from 'react';
+import { useSpring, animated } from 'react-spring'
 import {
-  Button
+  Button,
+  MenuButton
 } from './components'
 
 function App() {
+  const props = useSpring({ opacity: 1, from: { opacity: 0 } })
   return (
     <div className="App">
       <section className='App-header'>
-        <Button primary>menu</Button>
+        <MenuButton onClick={() => {console.log('click')}} />
         <Button>click me</Button>
+      </section>
+      <section className='App-content'>
+        <animated.div className='rotating-div' style={props} />
       </section>
     </div>
   );
