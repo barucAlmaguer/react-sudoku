@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <section className='App-header'>
         <MenuButton onClick={() => {console.log('click')}} />
-        <Button>click me</Button>
+        <h1>React Sudoku</h1>
       </section>
       <section className='App-content'>
         <animated.div className='rotating-div' style={props} />
