@@ -1,9 +1,10 @@
 .App {
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-areas: "sidebar main";
+  background-color: #497bdd;
   color: white;
-  /* flex-direction: column; */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .sidebar-options {
@@ -12,14 +13,9 @@
   width: 100%;
 }
 
-.App-main {
-  width: 100vw;
-}
-
 .App-header {
   background-color: #282c34;
   height: 60px;
-  padding-left: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,24 +25,20 @@
   font-size: 32px;
   margin-top: 0px;
   margin-bottom: 0px;
-  width: 100%;
   text-align: center;
+  width: 80vw;
+}
+
+.App-main {
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "sidebar content";
+  height: calc(100vh - 60px);
 }
 
 .App-content {
-  background-color: #497bdd;
   padding: 1rem;
-  height: calc(100vh - 60px - 60px);
-}
-
-.App-footer {
-  background-color: #282c34;
-  height: 60px;
-  padding-left: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  height: 100%;
+  /* height: calc(100vh - 60px); */
 }
 
 .rotating-div {

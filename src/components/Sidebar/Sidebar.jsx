@@ -7,11 +7,16 @@ const Sidebar = styled(animated.div)`
   background-color: #282c34;
   position: absolute;
   border-right: 4px solid orange;
-  height: 100%;
+  border-bottom: 4px solid orange;
+  /* height: 100%; */
   z-index: 1;
-  transform: translateX(calc(-${ (props) => {
-    return props.hidden ? '100% + 4px' : '0%'
-  } }));
+  transition: all 0.2s ease-in-out;
+  transform: translateX(calc(-${ (props) => (props.show ? '0%' : '100%') }));
+  h1 {
+    margin: 0px;
+    text-align: center;
+    border-bottom: solid 1px orange;
+  }
 `
 
 export default (props) => {
@@ -22,6 +27,6 @@ export default (props) => {
   // const opacityProps = useSpring({ opacity: 1, from: { opacity: 0 } })
 
   return (
-    <Sidebar hidden={props.hidden}>{props.children}</Sidebar>
+    <Sidebar show={props.show}>{props.children}</Sidebar>
   )
 }
