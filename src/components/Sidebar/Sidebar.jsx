@@ -10,8 +10,8 @@ const Sidebar = styled(animated.div)`
   height: 100%;
   z-index: 1;
   transform: translateX(calc(-${ (props) => {
-    return props.hidden ? '100%' : '-4px'
-  } } + 4px));
+    return props.hidden ? '100% + 4px' : '0%'
+  } }));
 `
 
 export default (props) => {
