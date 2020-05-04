@@ -21,10 +21,11 @@ function App() {
         <Sidebar show={displayMenu}>
           <h1>Menu</h1>
           <div className="sidebar-options">
-            <Spacer size="small" />
-            <Button primary>Saved games</Button>
-            <Spacer size="small" />
-            <Button primary>Options</Button>
+            <Button primary >Sudoku</Button>
+            <Button primary >Number puzzle</Button>
+            <Button primary >Drag-drop</Button>
+            <Button>Saved games</Button>
+            <Button>Options</Button>
           </div>
         </Sidebar>
         <div className="App-content">

@@ -9,6 +9,7 @@ const Sidebar = styled(animated.div)`
   border-right: 4px solid orange;
   border-bottom: 4px solid orange;
   /* height: 100%; */
+  width: 200px;
   z-index: 1;
   transition: all 0.2s ease-in-out;
   transform: translateX(calc(-${ (props) => (props.show ? '0%' : '100%') }));
