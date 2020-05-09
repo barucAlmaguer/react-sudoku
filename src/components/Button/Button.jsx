@@ -10,6 +10,7 @@ const Button = styled.button`
   height: 40px;
   &:hover {
     color: white;
+    font-weight: bold;
   }
   &:active {
     font-weight: bold;

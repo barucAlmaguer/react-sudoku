@@ -4,13 +4,15 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import { useSpring, animated } from 'react-spring'
-import { Sudoku } from './screens'
+import { WelcomePage, Sudoku } from './screens'
 import {
   Sidebar,
   Button,
+  LinkButton,
   MenuButton,
   Spacer
 } from './components'
@@ -29,29 +31,17 @@ function App() {
           <Sidebar show={displayMenu}>
             <h1>Menu</h1>
             <div className="sidebar-options">
-              <Button primary >Sudoku</Button>
-              <Button primary >Number puzzle</Button>
-              <Button primary >Drag-drop</Button>
+              <LinkButton to="/home" label='Home' />
+              <LinkButton to="/sudoku" label='Sudoku' />
+              <LinkButton to="/number-puzzle" label='Number Puzzle' />
               <Button>Saved games</Button>
               <Button>Options</Button>
-              <nav>
-                <ul>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/sudoku">Sudoku</Link>
-                  </li>
-                  <li>
-                    <Link to="/number-puzzle">Number Puzzle</Link>
-                  </li>
-                </ul>
-              </nav>
             </div>
           </Sidebar>
             
           <div className="App-content">
             <Switch>
+              <Route exact path='/' render={() => <Redirect to='/home' />} />
               <Route path="/sudoku">
                 <Sudoku />
               </Route>
@@ -61,9 +51,8 @@ function App() {
               <Route path="/spring-test">
                 <animated.div className='rotating-div' style={opacityProps} />
               </Route>
-              <Route path="/">
-                <h1>Welcome to React games!</h1>
-                <h2>Click on the side menu to select a game.</h2>
+              <Route path="/home">
+                <WelcomePage />
               </Route>
             </Switch>
           </div>

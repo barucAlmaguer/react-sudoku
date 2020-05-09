@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 const MenuButton = styled(Button)`
+  position: absolute;
   width: 40px;
 `
 
