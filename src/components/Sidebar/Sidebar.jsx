@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useSpring, animated } from 'react-spring'
 import styled, { css } from 'styled-components'
+import { useClickAway } from 'react-use'
 
 const Sidebar = styled(animated.div)`
   padding: 1rem;
@@ -12,7 +13,7 @@ const Sidebar = styled(animated.div)`
   width: 200px;
   z-index: 1;
   transition: all 0.2s ease-in-out;
-  transform: translateX(calc(-${ (props) => (props.show ? '0%' : '100%') }));
+  transform: translateX(calc(-${ (props) => (props.show === 'true' ? '0%' : '100%') }));
   h1 {
     margin: 0px;
     text-align: center;
@@ -21,13 +22,11 @@ const Sidebar = styled(animated.div)`
 `
 
 export default (props) => {
-  // const menuAnimatedProps = useSpring({
-  //   translateX: '100%',
-  //   from: { translateX: '0%'}
-  // })
-  // const opacityProps = useSpring({ opacity: 1, from: { opacity: 0 } })
-
+  const ref = useRef(null);
+  useClickAway(ref, () => {
+    props.onClickOutside && props.onClickOutside()
+  });
   return (
-    <Sidebar show={props.show}>{props.children}</Sidebar>
+    <Sidebar ref={ref} show={props.show.toString()}>{props.children}</Sidebar>
   )
 }

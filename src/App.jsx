@@ -28,7 +28,7 @@ function App() {
       </div>
       <Router>
         <div className='App-main'>
-          <Sidebar show={displayMenu}>
+          <Sidebar show={displayMenu} onClickOutside={() => { setDisplayMenu(false) }}>
             <h1>Menu</h1>
             <div className="sidebar-options">
               <LinkButton to="/home" label='Home' />
