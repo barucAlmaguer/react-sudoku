@@ -1,0 +1,12 @@
+.board-cell {
+  width: 100px;
+  height: 100px;
+}
+
+.board-cell.white {
+  background-color: white;
+}
+
+.board-cell.black {
+  background-color: black;
+}
