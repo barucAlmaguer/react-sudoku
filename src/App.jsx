@@ -8,7 +8,7 @@ import {
   Redirect
 } from "react-router-dom";
 import { useSpring, animated } from 'react-spring'
-import { WelcomePage, Sudoku } from './screens'
+import { WelcomePage, Chess, Sudoku } from './screens'
 import {
   Sidebar,
   Button,
@@ -32,6 +32,7 @@ function App() {
             <h1>Menu</h1>
             <div className="sidebar-options">
               <LinkButton to="/home" label='Home' />
+              <LinkButton to="/chess" label='Chess' />
               <LinkButton to="/sudoku" label='Sudoku' />
               <LinkButton to="/number-puzzle" label='Number Puzzle' />
               <Button>Saved games</Button>
@@ -42,6 +43,9 @@ function App() {
           <div className="App-content">
             <Switch>
               <Route exact path='/' render={() => <Redirect to='/home' />} />
+              <Route path="/chess">
+                <Chess />
+              </Route>
               <Route path="/sudoku">
                 <Sudoku />
               </Route>
