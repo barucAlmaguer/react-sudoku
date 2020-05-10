@@ -1,20 +1,20 @@
-.board-cell {
+.board-square {
   width: 80px;
   height: 80px;
 }
 
-.board-cell.white {
+.board-square.white {
   background-color: white;
   color: black;
 }
-.board-cell.white:hover {
+.board-square.white:hover {
   /* background-color: wheat; */
 }
 
-.board-cell.black {
+.board-square.black {
   background-color: black;
   color: white;
 }
-.board-cell.black:hover {
+.board-square.black:hover {
   /* background-color: darkslategray; */
 }
