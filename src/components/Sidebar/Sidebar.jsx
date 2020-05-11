@@ -7,13 +7,14 @@ const Sidebar = styled(animated.div)`
   padding: 1rem;
   background-color: #282c34;
   position: absolute;
-  border-right: 4px solid orange;
-  border-bottom: 4px solid orange;
   /* height: 100%; */
   width: 200px;
   z-index: 1;
   transition: all 0.2s ease-in-out;
   transform: translateX(calc(-${ (props) => (props.show === 'true' ? '0%' : '100%') }));
+  ${props => props.show === 'true' && css`
+    box-shadow: 4px 4px 0px 0px orange;
+  `}
   h1 {
     margin: 0px;
     text-align: center;

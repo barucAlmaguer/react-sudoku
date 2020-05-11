@@ -1,15 +1,19 @@
 import React from 'react'
 import { useDrop } from 'react-dnd'
 import Square from '../Square'
+import Overlay from '../Overlay'
 import { ItemTypes } from '../DragAndDrop'
 
 function BoardSquare ({ x, y, moveKnight, canMoveKnight, children }) {
   const [{isOver, canDrop}, dropRef] = useDrop({
     accept: ItemTypes.KNIGHT,
+    canDrop: () => canMoveKnight,
     drop: () => {
       // Might as well use: monitor.getItem()
-      if (canMoveKnight(x, y)) {
+      if (canMoveKnight) {
         moveKnight([x, y])
+      } else {
+        console.warn('Invalid move!')
       }
     },
     collect: mon => ({
@@ -30,6 +34,9 @@ function BoardSquare ({ x, y, moveKnight, canMoveKnight, children }) {
       }}
     >
       <Square black={isBlack(x, y)} >{children}</Square>
+      {isOver && canDrop && <Overlay color='yellow' />}
+      {isOver && !canDrop && <Overlay color='red' />}
+      {!isOver && canDrop && <Overlay color='green' />}
     </div>
   )
 }

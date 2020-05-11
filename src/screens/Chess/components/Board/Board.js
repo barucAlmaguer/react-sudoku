@@ -1,3 +1,4 @@
+import './Board.css'
 import React from 'react'
 import BoardRow from '../BoardRow'
 import BoardSquare from '../BoardSquare'
@@ -11,28 +12,24 @@ function Board({ rows, columns, knightPosition, canMoveKnight, moveKnight }) {
   function isKnightHere ([x, y], [posX, posY]) {
     return posX === x && posY === y
   }
-  function canMoveKnight([fromX, fromY], [toX, toY]) {
-    const dx = Math.abs(toX - fromX)
-    const dy = Math.abs(toY - fromY)
-    const canMove = (dx === 1 && dy === 2 || dx === 2 && dy === 1)
-    return canMove
-  }
   return (
-    <div className='chess-board'>{
-      arrFromSize(rows).map((row, r) => (
-        <BoardRow>{arrFromSize(columns).map((col, c) => (
-          <BoardSquare
-            key={c}
-            x={c}
-            y={r}
-            moveKnight={moveKnight}
-            canMoveKnight={(x, y) => canMoveKnight(knightPosition, [x, y])}
-          >{
-            isKnightHere([c, r], knightPosition) ? <Knight /> : null
-          }</BoardSquare> ))}
-        </BoardRow> 
-      ))
-    }</div>
+    <div className='chess-board-wrapper'>
+      <div className='chess-board'>{
+        arrFromSize(rows).map((row, y) => (
+          <BoardRow key={y} >{arrFromSize(columns).map((col, x) => (
+            <BoardSquare
+              key={x}
+              x={x}
+              y={y}
+              moveKnight={moveKnight}
+              canMoveKnight={canMoveKnight(knightPosition, [x, y])}
+            >{
+                isKnightHere([x, y], knightPosition) ? <Knight /> : null
+              }</BoardSquare>))}
+          </BoardRow>
+        ))
+      }</div>
+    </div>
   )
 }
 
