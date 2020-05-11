@@ -19,6 +19,7 @@
     "@xstate/react": "^0.8.1",
     "classnames": "^2.2.6",
     "i18next": ">=19.0.0",
+    "playroom": "^0.17.3",
     "react": "^16.13.1",
     "react-dnd": "^10.0.2",
     "react-dnd-html5-backend": "^10.0.2",
@@ -38,7 +39,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "playroom:start": "playroom start",
+    "playroom:build": "playroom build"
   },
   "eslintConfig": {
     "extends": "react-app"
