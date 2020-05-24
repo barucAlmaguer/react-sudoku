@@ -3,7 +3,7 @@ import { useSpring, animated } from 'react-spring'
 import styled, { css } from 'styled-components'
 import { useClickAway } from 'react-use'
 
-const Sidebar = styled(animated.div)`
+const StyledSidebar = styled(animated.div)`
   padding: 1rem;
   background-color: #282c34;
   position: absolute;
@@ -22,12 +22,19 @@ const Sidebar = styled(animated.div)`
   }
 `
 
-export default (props) => {
+export const Sidebar = (props) => {
   const ref = useRef(null);
   useClickAway(ref, () => {
     props.onClickOutside && props.onClickOutside()
   });
   return (
-    <Sidebar ref={ref} show={props.show.toString()}>{props.children}</Sidebar>
+    <StyledSidebar ref={ref} show={props.show.toString()}>{props.children}</StyledSidebar>
   )
 }
+
+export const SidebarOptions = styled.div`
+  display: grid;
+  grid-gap: 1rem;
+  padding-top: 1rem;
+  width: 100%;
+`

@@ -1,5 +1,1 @@
-import Sidebar from './Sidebar'
-
-export {
-  Sidebar
-}
+export { Sidebar, SidebarOptions } from './Sidebar'

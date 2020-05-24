@@ -1,7 +1,6 @@
-import React, { useState, useCallback } from 'react'
-import { DndProvider } from 'react-dnd'
-import Backend from 'react-dnd-html5-backend'
+import React, { useState, useCallback, Fragment } from 'react'
 import { Board } from './components'
+import { H1 } from '../../components'
 
 function Chess (props) {
   const [knightPosition, setknightPosition] = useState([0, 0])
@@ -12,8 +11,8 @@ function Chess (props) {
     return canMove
   }
   return (
-    <DndProvider backend={Backend}>
-      <h1>Chess game</h1>
+    <Fragment>
+      <H1>Chess game</H1>
       <Board
         rows={8}
         columns={8}
@@ -21,7 +20,7 @@ function Chess (props) {
         canMoveKnight={canMoveKnight}
         moveKnight={setknightPosition}
       />
-    </DndProvider>
+    </Fragment>
   )
 }
 

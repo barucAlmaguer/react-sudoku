@@ -1,15 +1,20 @@
-import { Sidebar } from './Sidebar'
-import {
+import styled from 'styled-components'
+
+export const H1 = styled.h1`
+  text-align: center;
+`
+
+export {
+  Sidebar,
+  SidebarOptions
+} from './Sidebar'
+
+export {
   Button,
   LinkButton,
   MenuButton
 } from './Button'
-import { Spacer } from './Spacer'
 
 export {
-  Sidebar,
-  Button,
-  LinkButton,
-  MenuButton,
   Spacer
-}
+} from './Spacer'
