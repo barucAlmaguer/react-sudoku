@@ -65,12 +65,18 @@ function App() {
   return (
     <Root>
       <NavBar>
-        <MenuButton onClick={() => { setDisplayMenu(!displayMenu) }} />
+        <MenuButton
+          action={displayMenu ? 'CLOSE' : 'OPEN'}
+          onClick={(action) => { setDisplayMenu(action === 'OPEN') }}
+        />
         <NavBarHeader>React Boardgames</NavBarHeader>
       </NavBar>
       <Router>
         <AppMain>
-          <Sidebar show={displayMenu} onClickOutside={() => { setDisplayMenu(false) }}>
+          <Sidebar
+            show={displayMenu}
+            // onClickOutside={() => { setDisplayMenu(false)}} // ! Clashes with MenuButton event. TODO: make both work
+          >
             <H1>Menu</H1>
             <SidebarOptions>
               <LinkButton to="/home" label='Home' />

@@ -24,7 +24,7 @@ const StyledSidebar = styled(animated.div)`
 
 export const Sidebar = (props) => {
   const ref = useRef(null);
-  useClickAway(ref, () => {
+  useClickAway(ref, (e) => {
     props.onClickOutside && props.onClickOutside()
   });
   return (
