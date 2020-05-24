@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import styled from 'styled-components'
 import { useSpring, animated } from 'react-spring'
-import { WelcomePage, Chess, Sudoku } from './screens'
+import { WelcomePage, Chess, Sudoku, ToDoApp } from './screens'
 import {
   H1,
   Sidebar,
@@ -83,6 +83,7 @@ function App() {
               <LinkButton to="/chess" label='Chess' />
               <LinkButton to="/sudoku" label='Sudoku' />
               <LinkButton to="/number-puzzle" label='Number Puzzle' />
+              <LinkButton to="/todo-app" label='To Do list' />
               <Button>Saved games</Button>
               <Button>Options</Button>
             </SidebarOptions>
@@ -99,6 +100,9 @@ function App() {
               </Route>
               <Route path="/number-puzzle">
                 <Button />
+              </Route>
+              <Route path="/todo-app">
+                <ToDoApp />
               </Route>
               <Route path="/home">
                 <WelcomePage />
