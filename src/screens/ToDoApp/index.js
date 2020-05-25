@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
+import styled, { css } from 'styled-components'
+import { get } from 'lodash'
 import { H1, Button } from '../../components'
 // Checked / unchecked
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -35,10 +36,12 @@ const StyledToDoList = styled.div`
 const ToDoItem = styled.div`
   display: flex;
   flex-direction: row;
+  width: fit-content;
   cursor: pointer;
   opacity: ${p => p.done && 0.5};
+  ${p => p.done && css`text-decoration: line-through;`}
   &:hover {
-    font-weight: bold;
+    text-decoration: underline;
   }
   & *:first-child {
     margin-right: 0.5rem;
@@ -106,15 +109,28 @@ const AddTodo = (props) => {
   )
 }
 
+function useLocalStorageState(key, defaultValue) {
+  const [value, setValue] = useState(defaultValue)
+  // ! retrieve initial value
+  useEffect(() => {
+    // if there is anything in the localStorage, it "wins" vs the defaultValue
+    // AKA: defaultValue only applies when no data was stored at all
+    const storedValue = window.localStorage.getItem(key)
+    const parsedValue = storedValue !== null ? JSON.parse(storedValue) : defaultValue
+    console.log({ parsedValue })
+    setValue(parsedValue)
+  }, [key])
+  // Updater function activates localStorage side-effect (persist updated value)
+  useEffect(() => {
+    console.log({ value })
+    window.localStorage.setItem(key, JSON.stringify(value))
+  }, [value])
+  // return value + setter API:
+  return [value, setValue]
+}
+
 const ToDoApp = (props) => {
-  const defaultItems = [
-    { id: 1, task: 'Limpiarle a Vainilla', done: true },
-    { id: 2, task: 'Trapear', done: false },
-    { id: 3, task: 'Cocinar', done: false },
-    { id: 4, task: 'Jugar ajedrez', done: true },
-    { id: 5, task: 'Lavar trastes', done: false }
-  ]
-  const [items, setItems] = useState(defaultItems)
+  const [items, setItems] = useLocalStorageState('todo-baruc', [])
   function toggleItem (item) {
     const newItems = [...items]
     const selectedItem = newItems.find(i => i.id === item.id)
@@ -122,7 +138,8 @@ const ToDoApp = (props) => {
     setItems(newItems)
   }
   function addTodo (task) {
-    const newItem = { id: items[items.length - 1].id + 1, done: false, task }
+    const newId = get(items, '-1.id', 0)
+    const newItem = { id: newId, done: false, task }
     setItems([...items, newItem])
   }
   const todoItems = items.filter(item => !item.done).map(item => (
